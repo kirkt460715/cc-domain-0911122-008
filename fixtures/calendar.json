@@ -1,0 +1,16 @@
+{
+  "zone": "America/New_York",
+  "business_start": "06:00",
+  "trigger": "01:30",
+  "ambiguous": "both",
+  "nonexistent": "shift-forward",
+  "dates": [
+    "2026-03-08",
+    "2026-11-01"
+  ],
+  "excluded_dates": [
+    "2026-11-26"
+  ],
+  "catchup": "all",
+  "version": 1
+}
