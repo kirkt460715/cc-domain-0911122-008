@@ -27,6 +27,24 @@ CREATE TABLE IF NOT EXISTS closures(id TEXT PRIMARY KEY,start INTEGER NOT NULL,e
  state TEXT NOT NULL,revision INTEGER NOT NULL,payload TEXT NOT NULL,digest TEXT NOT NULL);
 CREATE TABLE IF NOT EXISTS corrections(id TEXT PRIMARY KEY,closure TEXT NOT NULL,payload TEXT NOT NULL,
  digest TEXT NOT NULL,approved INTEGER NOT NULL,operator TEXT);
+CREATE TABLE IF NOT EXISTS collection_plans(id TEXT NOT NULL,revision INTEGER NOT NULL,meter TEXT NOT NULL,
+ created_at INTEGER NOT NULL,active INTEGER NOT NULL,payload TEXT NOT NULL,digest TEXT NOT NULL,
+ PRIMARY KEY(id,revision));
+CREATE INDEX IF NOT EXISTS plan_active ON collection_plans(active);
+CREATE TABLE IF NOT EXISTS collection_windows(id TEXT PRIMARY KEY,plan_id TEXT NOT NULL,revision INTEGER NOT NULL,
+ meter TEXT NOT NULL,business_date TEXT NOT NULL,start INTEGER NOT NULL,end INTEGER NOT NULL,
+ trigger_at INTEGER,status TEXT NOT NULL,attempts INTEGER NOT NULL,note TEXT NOT NULL,payload TEXT NOT NULL,
+ digest TEXT NOT NULL);
+CREATE INDEX IF NOT EXISTS window_time ON collection_windows(meter,start,end);
+CREATE INDEX IF NOT EXISTS window_status ON collection_windows(status,trigger_at);
+CREATE TABLE IF NOT EXISTS collection_runs(id TEXT PRIMARY KEY,window_id TEXT NOT NULL,kind TEXT NOT NULL,
+ owner TEXT NOT NULL,request_start INTEGER NOT NULL,request_end INTEGER NOT NULL,started_at INTEGER NOT NULL,
+ finished_at INTEGER,status TEXT NOT NULL,readings INTEGER NOT NULL,covered TEXT NOT NULL,reason TEXT,
+ payload TEXT NOT NULL,digest TEXT NOT NULL,lease_expires_at INTEGER);
+CREATE INDEX IF NOT EXISTS run_window ON collection_runs(window_id,id);
+CREATE TABLE IF NOT EXISTS collection_notes(id TEXT PRIMARY KEY,plan_id TEXT NOT NULL,revision INTEGER NOT NULL,
+ business_date TEXT NOT NULL,kind TEXT NOT NULL,detail TEXT NOT NULL,at INTEGER);
+CREATE INDEX IF NOT EXISTS note_lookup ON collection_notes(plan_id,business_date);
 CREATE TABLE IF NOT EXISTS audit(seq INTEGER PRIMARY KEY AUTOINCREMENT,kind TEXT NOT NULL,
  entity TEXT NOT NULL,payload TEXT NOT NULL,previous TEXT NOT NULL,digest TEXT NOT NULL);
 """

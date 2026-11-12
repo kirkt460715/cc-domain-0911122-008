@@ -14,12 +14,15 @@ python3 -m compileall -q energyflow lab tests
 ## 现有操作示例
 
 python3 -m energyflow demo
+python3 -m energyflow collection_demo
 python3 -m energyflow --db energy.sqlite3 describe
 python3 -m energyflow --db energy.sqlite3 run request.json
 python3 -m energyflow --db energy.sqlite3 ingest batch readings.jsonl
 python3 -m energyflow verify settlement.json
 python3 -m unittest discover -s tests -v
 python3 -m compileall -q energyflow
+
+collection_demo 使用注入时钟与本地回环网关，连续演示两个 DST 切换日（不存在/重复当地时刻的 skip、shift-forward、first/second/both 解释）、计划改版后旧窗口不被重新解释、停机逐日追赶与 latest 追赶、维护排除段、节假日以及明确放弃的来源缺口；设计见 docs/采集日历设计.md，报告输出到 var/collection_demo_report.json。
 
 ## 本地来源
 

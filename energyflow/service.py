@@ -12,6 +12,7 @@ from .settlement.closing import Closing
 from .settlement.demand import Demand
 from .interfaces.bundles import Bundles
 from .quality import Quality
+from .collection.scheduler import Scheduler
 from .values import object_fields, reject
 
 
@@ -40,6 +41,7 @@ class EnergyService:
             self.tariffs,
             self.emissions,
         )
+        self.scheduler = Scheduler(self.store, self.readings)
 
     def actions(self):
         definitions = [
@@ -178,6 +180,26 @@ class EnergyService:
                 "storage",
                 self.store,
                 ["verify_audit", "audit_page", "integrity", "backup"],
+            ),
+            (
+                "collect",
+                self.scheduler,
+                [
+                    "create_plan",
+                    "get_plan",
+                    "list_plans",
+                    "plan_versions",
+                    "preview",
+                    "materialize",
+                    "windows",
+                    "window",
+                    "notes",
+                    "tick",
+                    "backfill",
+                    "abandon_gap",
+                    "runs",
+                    "coverage",
+                ],
             ),
         ]
         result = {}

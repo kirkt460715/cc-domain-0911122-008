@@ -1,0 +1,646 @@
+{
+  "chapters": [
+    {
+      "chapter": "1_计划与DST预览",
+      "spring_day": {
+        "business_date": "2026-03-08",
+        "utc_start": "2026-03-08T06:00:00Z",
+        "utc_end": "2026-03-09T06:00:00Z",
+        "seconds": 86400,
+        "holiday": false,
+        "triggers": [],
+        "maintenance": [],
+        "notes": [
+          {
+            "kind": "boundary",
+            "detail": {
+              "code": "boundary_inside_spring_gap",
+              "gap_start": 1772949600,
+              "gap_end": 1772953200,
+              "resolution": "gap_start"
+            },
+            "at": 1772949600
+          },
+          {
+            "kind": "trigger",
+            "detail": {
+              "code": "nonexistent_local_time_skipped",
+              "gap_start": 1772951400,
+              "gap_end": 1772955000
+            },
+            "at": null
+          }
+        ]
+      },
+      "fall_switch_day": {
+        "business_date": "2026-11-01",
+        "utc_start": "2026-11-01T07:00:00Z",
+        "utc_end": "2026-11-02T07:00:00Z",
+        "seconds": 86400,
+        "holiday": false,
+        "triggers": [
+          {
+            "at": "2026-11-01T05:30:00Z",
+            "interpretation": "ambiguous-first"
+          },
+          {
+            "at": "2026-11-01T06:30:00Z",
+            "interpretation": "ambiguous-second"
+          }
+        ],
+        "maintenance": [],
+        "notes": []
+      }
+    },
+    {
+      "chapter": "2_春季切换_skip",
+      "tick": {
+        "ran": 2,
+        "readings": 47,
+        "windows": [
+          {
+            "window": "ny.2026-03-07",
+            "run": "run.ny.2026-03-07.1",
+            "status": "succeeded"
+          },
+          {
+            "window": "ny.2026-03-09",
+            "run": "run.ny.2026-03-09.1",
+            "status": "succeeded"
+          }
+        ],
+        "budget_exhausted": false
+      },
+      "windows": [
+        {
+          "business_date": "2026-03-07",
+          "status": "collected",
+          "revision": 1,
+          "trigger_at": "2026-03-07T07:30:00Z"
+        },
+        {
+          "business_date": "2026-03-08",
+          "status": "abandoned",
+          "revision": 1,
+          "trigger_at": null
+        },
+        {
+          "business_date": "2026-03-09",
+          "status": "collected",
+          "revision": 1,
+          "trigger_at": "2026-03-09T06:30:00Z"
+        }
+      ],
+      "notes": [
+        {
+          "id": "92d9bb54d4885912",
+          "plan_id": "ny",
+          "revision": 1,
+          "business_date": "2026-03-08",
+          "kind": "trigger",
+          "detail": {
+            "code": "nonexistent_local_time_skipped",
+            "gap_end": 1772955000,
+            "gap_start": 1772951400
+          },
+          "at": null
+        },
+        {
+          "id": "a69461242302ee64",
+          "plan_id": "ny",
+          "revision": 1,
+          "business_date": "2026-03-08",
+          "kind": "trigger",
+          "detail": {
+            "code": "window_abandoned_trigger_skipped"
+          },
+          "at": null
+        },
+        {
+          "id": "dee17f65d8a001c2",
+          "plan_id": "ny",
+          "revision": 1,
+          "business_date": "2026-03-08",
+          "kind": "boundary",
+          "detail": {
+            "code": "boundary_inside_spring_gap",
+            "gap_end": 1772953200,
+            "gap_start": 1772949600,
+            "resolution": "gap_start"
+          },
+          "at": 1772949600
+        }
+      ]
+    },
+    {
+      "chapter": "3_计划改版_旧窗口处置",
+      "versions": [
+        {
+          "revision": 1,
+          "active": 0,
+          "created_at": 1772881200,
+          "meter": "ny-plant"
+        },
+        {
+          "revision": 2,
+          "active": 1,
+          "created_at": 1773144000,
+          "meter": "ny-plant"
+        }
+      ],
+      "old_spring_window": {
+        "id": "ny.2026-03-08",
+        "status": "abandoned",
+        "revision": 1
+      },
+      "new_windows_revision": [
+        2
+      ]
+    },
+    {
+      "chapter": "4_秋季切换_维护排除",
+      "tick": {
+        "ran": 5,
+        "readings": 76,
+        "windows": [
+          {
+            "window": "ny.2026-10-30",
+            "run": "run.ny.2026-10-30.1",
+            "status": "succeeded"
+          },
+          {
+            "window": "ny.2026-10-31",
+            "run": "run.ny.2026-10-31.1",
+            "status": "succeeded"
+          },
+          {
+            "window": "ny.2026-11-01",
+            "run": "run.ny.2026-11-01.1",
+            "status": "succeeded"
+          },
+          {
+            "window": "ny.2026-11-01",
+            "run": "run.ny.2026-11-01.2",
+            "status": "succeeded"
+          },
+          {
+            "window": "ny.2026-11-02",
+            "run": "run.ny.2026-11-02.1",
+            "status": "incomplete"
+          }
+        ],
+        "budget_exhausted": false
+      },
+      "window_status": "collected",
+      "coverage": {
+        "window": "ny.2026-11-01",
+        "business_date": "2026-11-01",
+        "revision": 2,
+        "status": "collected",
+        "utc_start": "2026-11-01T07:00:00Z",
+        "utc_end": "2026-11-02T07:00:00Z",
+        "covered": [
+          {
+            "start": "2026-11-01T07:00:00Z",
+            "end": "2026-11-01T08:00:00Z"
+          },
+          {
+            "start": "2026-11-01T10:00:00Z",
+            "end": "2026-11-02T07:00:00Z"
+          }
+        ],
+        "excluded": [
+          {
+            "start": "2026-11-01T08:00:00Z",
+            "end": "2026-11-01T10:00:00Z"
+          }
+        ],
+        "missing": [],
+        "covered_seconds": 79200,
+        "missing_seconds": 0,
+        "excluded_seconds": 7200
+      },
+      "notes": [
+        {
+          "id": "bbe7338f173e3df5",
+          "plan_id": "ny",
+          "revision": 2,
+          "business_date": "2026-11-01",
+          "kind": "maintenance",
+          "detail": {
+            "clips": [
+              {
+                "end": 1793527200,
+                "reason": "现场手工暂停校准",
+                "start": 1793520000
+              }
+            ],
+            "code": "maintenance_excludes_part_of_window"
+          },
+          "at": 1793518200
+        }
+      ]
+    },
+    {
+      "chapter": "5_停机与逐日追赶",
+      "downtime_window": {
+        "start": "2026-11-03T00:00:00Z",
+        "end": "2026-11-07T00:00:00Z"
+      },
+      "tick_during_outage": {
+        "ran": 3,
+        "readings": 0,
+        "windows": [
+          {
+            "window": "ny.2026-11-02",
+            "run": "run.ny.2026-11-02.2",
+            "status": "failed"
+          },
+          {
+            "window": "ny.2026-11-03",
+            "run": "run.ny.2026-11-03.1",
+            "status": "failed"
+          },
+          {
+            "window": "ny.2026-11-04",
+            "run": "run.ny.2026-11-04.1",
+            "status": "failed"
+          }
+        ],
+        "budget_exhausted": false
+      },
+      "status_during_outage": [
+        {
+          "business_date": "2026-11-03",
+          "status": "failed",
+          "attempts": 1
+        },
+        {
+          "business_date": "2026-11-04",
+          "status": "failed",
+          "attempts": 1
+        },
+        {
+          "business_date": "2026-11-05",
+          "status": "planned",
+          "attempts": 0
+        },
+        {
+          "business_date": "2026-11-06",
+          "status": "planned",
+          "attempts": 0
+        }
+      ],
+      "catchup": {
+        "ran": 5,
+        "readings": 104,
+        "windows": [
+          {
+            "window": "ny.2026-11-02",
+            "run": "run.ny.2026-11-02.3",
+            "status": "incomplete"
+          },
+          {
+            "window": "ny.2026-11-03",
+            "run": "run.ny.2026-11-03.2",
+            "status": "succeeded"
+          },
+          {
+            "window": "ny.2026-11-04",
+            "run": "run.ny.2026-11-04.2",
+            "status": "succeeded"
+          },
+          {
+            "window": "ny.2026-11-05",
+            "run": "run.ny.2026-11-05.1",
+            "status": "succeeded"
+          },
+          {
+            "window": "ny.2026-11-06",
+            "run": "run.ny.2026-11-06.1",
+            "status": "succeeded"
+          }
+        ],
+        "budget_exhausted": false,
+        "mode": "all"
+      },
+      "window_status_after": [
+        {
+          "business_date": "2026-11-03",
+          "status": "collected"
+        },
+        {
+          "business_date": "2026-11-04",
+          "status": "collected"
+        },
+        {
+          "business_date": "2026-11-05",
+          "status": "collected"
+        },
+        {
+          "business_date": "2026-11-06",
+          "status": "collected"
+        }
+      ]
+    },
+    {
+      "chapter": "6_真实缺口与明确放弃",
+      "before_abandon_missing_seconds": 86400,
+      "after": {
+        "window": "ny.2026-11-02",
+        "business_date": "2026-11-02",
+        "revision": 2,
+        "status": "abandoned",
+        "utc_start": "2026-11-02T07:00:00Z",
+        "utc_end": "2026-11-03T07:00:00Z",
+        "covered": [],
+        "excluded": [],
+        "missing": [
+          {
+            "start": "2026-11-02T07:00:00Z",
+            "end": "2026-11-03T07:00:00Z"
+          }
+        ],
+        "covered_seconds": 0,
+        "missing_seconds": 86400,
+        "excluded_seconds": 0
+      },
+      "abandon_notes": [
+        {
+          "id": "382c2a22515e9e61",
+          "plan_id": "ny",
+          "revision": 2,
+          "business_date": "2026-11-02",
+          "kind": "abandoned_gap",
+          "detail": {
+            "code": "operator_abandoned_gap",
+            "end": 1793689200,
+            "index": 0,
+            "reason": "来源电表存储损坏，两小时无法恢复",
+            "start": 1793602800
+          },
+          "at": 1794139200
+        }
+      ],
+      "holiday_window": {
+        "business_date": "2026-11-26",
+        "status": "skipped"
+      },
+      "holiday_requested_source": false
+    },
+    {
+      "chapter": "7_latest追赶_旧日期显式放弃",
+      "catchup": {
+        "ran": 1,
+        "readings": 0,
+        "windows": [
+          {
+            "window": "ny-latest.2026-11-06",
+            "run": "run.ny-latest.2026-11-06.1",
+            "status": "succeeded"
+          }
+        ],
+        "budget_exhausted": false,
+        "mode": "latest"
+      },
+      "windows": [
+        {
+          "business_date": "2026-11-03",
+          "status": "abandoned"
+        },
+        {
+          "business_date": "2026-11-04",
+          "status": "abandoned"
+        },
+        {
+          "business_date": "2026-11-05",
+          "status": "abandoned"
+        },
+        {
+          "business_date": "2026-11-06",
+          "status": "collected"
+        }
+      ],
+      "abandon_note": [
+        "latest_catchup_older_day_abandoned"
+      ]
+    },
+    {
+      "chapter": "8_总对照",
+      "gateway_requests": [
+        {
+          "start": "2026-03-07T07:00:00+00:00",
+          "end": "2026-03-08T06:00:00+00:00",
+          "meter": "ny-plant"
+        },
+        {
+          "start": "2026-03-09T06:00:00+00:00",
+          "end": "2026-03-10T06:00:00+00:00",
+          "meter": "ny-plant"
+        },
+        {
+          "start": "2026-10-30T06:00:00+00:00",
+          "end": "2026-10-31T06:00:00+00:00",
+          "meter": "ny-plant"
+        },
+        {
+          "start": "2026-10-31T06:00:00+00:00",
+          "end": "2026-11-01T07:00:00+00:00",
+          "meter": "ny-plant"
+        },
+        {
+          "start": "2026-11-01T07:00:00+00:00",
+          "end": "2026-11-01T08:00:00+00:00",
+          "meter": "ny-plant"
+        },
+        {
+          "start": "2026-11-01T10:00:00+00:00",
+          "end": "2026-11-02T07:00:00+00:00",
+          "meter": "ny-plant"
+        },
+        {
+          "start": "2026-11-02T07:00:00+00:00",
+          "end": "2026-11-03T07:00:00+00:00",
+          "meter": "ny-plant"
+        },
+        {
+          "start": "2026-11-02T07:00:00+00:00",
+          "end": "2026-11-03T07:00:00+00:00",
+          "meter": "ny-plant"
+        },
+        {
+          "start": "2026-11-03T07:00:00+00:00",
+          "end": "2026-11-04T07:00:00+00:00",
+          "meter": "ny-plant"
+        },
+        {
+          "start": "2026-11-04T07:00:00+00:00",
+          "end": "2026-11-05T07:00:00+00:00",
+          "meter": "ny-plant"
+        },
+        {
+          "start": "2026-11-02T07:00:00+00:00",
+          "end": "2026-11-03T07:00:00+00:00",
+          "meter": "ny-plant"
+        },
+        {
+          "start": "2026-11-03T07:00:00+00:00",
+          "end": "2026-11-04T07:00:00+00:00",
+          "meter": "ny-plant"
+        },
+        {
+          "start": "2026-11-04T07:00:00+00:00",
+          "end": "2026-11-05T07:00:00+00:00",
+          "meter": "ny-plant"
+        },
+        {
+          "start": "2026-11-05T07:00:00+00:00",
+          "end": "2026-11-06T07:00:00+00:00",
+          "meter": "ny-plant"
+        },
+        {
+          "start": "2026-11-06T07:00:00+00:00",
+          "end": "2026-11-07T07:00:00+00:00",
+          "meter": "ny-plant"
+        },
+        {
+          "start": "2026-11-02T07:00:00+00:00",
+          "end": "2026-11-03T07:00:00+00:00",
+          "meter": "ny-plant"
+        },
+        {
+          "start": "2026-11-06T07:00:00+00:00",
+          "end": "2026-11-07T07:00:00+00:00",
+          "meter": "ny-plant"
+        }
+      ],
+      "stored_reading_count": 222,
+      "totals": {
+        "requested_seconds": 1036800,
+        "covered_seconds": 770400,
+        "excluded_seconds": 7200,
+        "missing_seconds": 259200,
+        "abandoned_seconds": 172800
+      },
+      "windows": [
+        {
+          "business_date": "2026-03-07",
+          "status": "collected",
+          "revision": 1,
+          "covered_seconds": 82800,
+          "missing_seconds": 0,
+          "missing": []
+        },
+        {
+          "business_date": "2026-03-08",
+          "status": "abandoned",
+          "revision": 1,
+          "covered_seconds": 0,
+          "missing_seconds": 86400,
+          "missing": [
+            {
+              "start": "2026-03-08T06:00:00Z",
+              "end": "2026-03-09T06:00:00Z"
+            }
+          ]
+        },
+        {
+          "business_date": "2026-03-09",
+          "status": "collected",
+          "revision": 1,
+          "covered_seconds": 86400,
+          "missing_seconds": 0,
+          "missing": []
+        },
+        {
+          "business_date": "2026-10-30",
+          "status": "collected",
+          "revision": 2,
+          "covered_seconds": 86400,
+          "missing_seconds": 0,
+          "missing": []
+        },
+        {
+          "business_date": "2026-10-31",
+          "status": "collected",
+          "revision": 2,
+          "covered_seconds": 90000,
+          "missing_seconds": 0,
+          "missing": []
+        },
+        {
+          "business_date": "2026-11-01",
+          "status": "collected",
+          "revision": 2,
+          "covered_seconds": 79200,
+          "missing_seconds": 0,
+          "missing": []
+        },
+        {
+          "business_date": "2026-11-02",
+          "status": "abandoned",
+          "revision": 2,
+          "covered_seconds": 0,
+          "missing_seconds": 86400,
+          "missing": [
+            {
+              "start": "2026-11-02T07:00:00Z",
+              "end": "2026-11-03T07:00:00Z"
+            }
+          ]
+        },
+        {
+          "business_date": "2026-11-03",
+          "status": "collected",
+          "revision": 2,
+          "covered_seconds": 86400,
+          "missing_seconds": 0,
+          "missing": []
+        },
+        {
+          "business_date": "2026-11-04",
+          "status": "collected",
+          "revision": 2,
+          "covered_seconds": 86400,
+          "missing_seconds": 0,
+          "missing": []
+        },
+        {
+          "business_date": "2026-11-05",
+          "status": "collected",
+          "revision": 2,
+          "covered_seconds": 86400,
+          "missing_seconds": 0,
+          "missing": []
+        },
+        {
+          "business_date": "2026-11-06",
+          "status": "collected",
+          "revision": 2,
+          "covered_seconds": 86400,
+          "missing_seconds": 0,
+          "missing": []
+        },
+        {
+          "business_date": "2026-11-26",
+          "status": "skipped",
+          "revision": 2,
+          "covered_seconds": 0,
+          "missing_seconds": 86400,
+          "missing": [
+            {
+              "start": "2026-11-26T07:00:00Z",
+              "end": "2026-11-27T07:00:00Z"
+            }
+          ]
+        }
+      ],
+      "audit": {
+        "count": 272,
+        "head": "27c9f73e4d080edfadcf401b0d3fe81fe3e7c40f15b565e086ea02d032595391",
+        "verified": true
+      }
+    }
+  ],
+  "ok": true
+}

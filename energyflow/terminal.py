@@ -17,6 +17,7 @@ def main(argv=None):
     parser.add_argument("--db", default="energyflow.sqlite3")
     commands = parser.add_subparsers(dest="command", required=True)
     commands.add_parser("demo")
+    commands.add_parser("collection_demo")
     commands.add_parser("describe")
     run = commands.add_parser("run")
     run.add_argument("request")
@@ -31,6 +32,10 @@ def main(argv=None):
     try:
         if args.command == "demo":
             from .demo import run
+
+            result = run()
+        elif args.command == "collection_demo":
+            from .collection_demo import run
 
             result = run()
         elif args.command == "verify":
